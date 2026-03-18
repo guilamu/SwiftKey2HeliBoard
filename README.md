@@ -65,8 +65,6 @@ For most users coming from SwiftKey, the trade-off is clear: you lose a slightly
 
 ---
 
----
-
 ## 1. Export Your SwiftKey Data
 
 SwiftKey does not allow a local export — you must go through its web portal, which requires a Microsoft account.
