@@ -8,6 +8,8 @@ A complete, ADB-free guide to migrate your SwiftKey learned vocabulary and setti
 
 ## Table of Contents
 
+- [Why HeliBoard?](#why-heliboard)
+
 1. [Export Your SwiftKey Data](#1-export-your-swiftkey-data)
 2. [Convert the Dictionary](#2-convert-the-dictionary)
 3. [Install HeliBoard](#3-install-heliboard)
@@ -16,6 +18,52 @@ A complete, ADB-free guide to migrate your SwiftKey learned vocabulary and setti
 6. [Back Up HeliBoard Settings](#6-back-up-heliboard-settings)
 7. [Uninstalling UDM](#7-uninstalling-udm)
 8. [What Doesn't Transfer](#8-what-doesnt-transfer)
+
+---
+
+## Why HeliBoard?
+
+SwiftKey's forced migration to Microsoft accounts is a good opportunity to rethink which keyboard you trust with everything you type.
+
+### 🔒 Zero Network Access — By Design
+
+HeliBoard **does not request internet permission** at all [web:90]. This means everything you type stays on your device — no keystrokes, learned words, or personal data ever leave your phone. SwiftKey and Gboard both send typing data to cloud servers for prediction improvements. HeliBoard's predictions run entirely offline.
+
+### 🆓 Free, Open Source, No Ads
+
+HeliBoard is fully open source (Apache 2.0 license), has no ads, no subscriptions, and no telemetry [web:91]. The source code is publicly auditable on [GitHub](https://github.com/Helium314/HeliBoard), which means the privacy claims can actually be verified — unlike closed-source alternatives.
+
+### ⚙️ More Customizable Than Gboard or SwiftKey
+
+HeliBoard matches or exceeds both Gboard and SwiftKey in features [web:26]:
+
+- Unlimited clipboard history (Gboard caps at 5 items and resets hourly)
+- Fully customizable toolbar icons
+- Custom key height, padding, and layout
+- Material You dynamic theming + custom background images
+- Forced incognito mode (disables learning for sensitive contexts)
+- Custom layouts and key overrides per language
+
+### 🌍 Solid Multilingual Support
+
+You can type in multiple languages simultaneously without manually switching — HeliBoard detects the language mid-sentence [web:89]. Dictionaries are downloaded locally per language and work fully offline.
+
+### 🛠️ Actively Maintained
+
+HeliBoard is based on AOSP/OpenBoard and actively maintained by the community on GitHub [web:30]. Bug reports and feature requests are handled publicly and transparently.
+
+### ⚖️ Honest Limitations
+
+HeliBoard is not perfect:
+
+- **Predictive text** is good but not yet on par with SwiftKey's neural model — it will improve as it learns your patterns
+- **Swipe/gesture typing** requires a separate library download (closed-source, optional)
+- **Setup takes a few minutes** — it doesn't come pre-configured out of the box like Gboard
+- **Updates are less frequent** than commercial keyboards
+
+For most users coming from SwiftKey, the trade-off is clear: you lose a slightly smarter autocorrect cloud model, and you gain complete privacy, no account requirements, and no risk of future forced migrations.
+
+---
 
 ---
 
