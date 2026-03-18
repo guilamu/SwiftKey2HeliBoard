@@ -1,2 +1,213 @@
-# SwiftKey2HeliBoard
-SwiftKey → HeliBoard Migration Guide
+# SwiftKey → HeliBoard Migration Guide
+
+> **⚠️ Deadline: May 31, 2026** — SwiftKey account data will be permanently deleted after this date. Export your data before then.
+
+A complete, ADB-free guide to migrate your SwiftKey learned vocabulary and settings to [HeliBoard](https://github.com/Helium314/HeliBoard), a privacy-focused, open-source Android keyboard.
+
+---
+
+## Table of Contents
+
+1. [Export Your SwiftKey Data](#1-export-your-swiftkey-data)
+2. [Convert the Dictionary](#2-convert-the-dictionary)
+3. [Install HeliBoard](#3-install-heliboard)
+4. [Import Your Dictionary](#4-import-your-dictionary)
+5. [Configure HeliBoard like SwiftKey](#5-configure-heliboard-like-swiftkey)
+6. [Back Up HeliBoard Settings](#6-back-up-heliboard-settings)
+7. [Uninstalling UDM](#7-uninstalling-udm)
+8. [What Doesn't Transfer](#8-what-doesnt-transfer)
+
+---
+
+## 1. Export Your SwiftKey Data
+
+SwiftKey does not allow a local export — you must go through its web portal, which requires a Microsoft account.
+
+**If you already have a Microsoft account**, skip to step 4 below.
+
+**If you don't have a Microsoft account:**
+
+1. Create a **temporary Microsoft account** at [account.microsoft.com](https://account.microsoft.com)
+   - You can use a disposable email address (e.g. [temp-mail.org](https://temp-mail.org))
+2. In SwiftKey → **Settings → Account → Sign In** with that account
+3. Wait a few seconds for the sync to complete
+
+**Export steps (all users):**
+
+4. On a PC, go to [data.swiftkey.com](https://data.swiftkey.com) and sign in
+5. Click **View Data → Export All**
+6. Download the `swiftkey.json` file — this contains your full learned vocabulary
+
+> You may delete the temporary Microsoft account afterwards if you created one for this purpose.
+
+---
+
+## 2. Convert the Dictionary
+
+HeliBoard cannot directly import SwiftKey's JSON format. The raw data also contains noise (URLs, email addresses, numbers, timestamps) that would pollute your dictionary. The script below cleans and converts it.
+
+**Requirements:** Python 3 installed on your PC ([python.org](https://python.org))
+
+Save the following as `convert.py` in the same folder as `swiftkey.json`:
+
+```python
+import json, re
+
+with open("swiftkey.json", encoding="utf-8") as f:
+    data = json.load(f)
+
+terms = data.get("terms", [])
+
+def is_valid_word(w):
+    if len(w) < 2 or len(w) > 50:
+        return False
+    if re.search(r'\d', w):           # remove anything with digits
+        return False
+    if re.search(r'[@/:\.\\]', w):    # remove emails, URLs, paths
+        return False
+    if not re.search(r'[a-zA-ZÀ-ÿ]', w):  # must contain at least one letter
+        return False
+    return True
+
+cleaned = sorted(set(filter(is_valid_word, terms)))
+
+with open("heliboard_wordlist.txt", "w", encoding="utf-8") as f:
+    f.write("\n".join(cleaned))
+
+print(f"Done: {len(cleaned)} words exported out of {len(terms)} total terms.")
+```
+
+Run it:
+
+```bash
+python convert.py
+```
+
+This produces `heliboard_wordlist.txt` — a plain text word list ready for import.
+
+---
+
+## 3. Install HeliBoard
+
+Install HeliBoard from one of these sources:
+
+- [F-Droid](https://f-droid.org/packages/helium314.keyboard/) *(recommended — no Google)*
+- [GitHub Releases](https://github.com/Helium314/HeliBoard/releases)
+- [Google Play Store](https://play.google.com/store/apps/details?id=helium314.keyboard)
+
+Then enable it as your default keyboard:
+
+1. **Android Settings → System → Language & Input → On-screen keyboard → Manage keyboards** → enable HeliBoard
+2. Tap **Select keyboard** in any text field → choose HeliBoard
+
+---
+
+## 4. Import Your Dictionary
+
+[UDM (User Dictionary Manager)](https://play.google.com/store/apps/details?id=com.dooboolab.UDM) is required as a bridge to inject words into Android's system dictionary, which HeliBoard reads.
+
+1. Install **UDM** from F-Droid or the Play Store
+2. Copy `heliboard_wordlist.txt` to your phone
+3. Open UDM → **Import**
+4. Select format: **Plain Text / Word List** *(not Gboard/CSV)*
+5. Select your file
+6. Assign language: `fr_FR`, `en_US`, or **All languages** depending on your use case
+7. Tap **Start**
+
+**Verify the import:**
+
+Go to **HeliBoard Settings → Dictionary → Personal Dictionary** — you should see your words listed there.
+
+---
+
+## 5. Configure HeliBoard like SwiftKey
+
+### 5.1 Multilingual Typing (e.g. French + English simultaneously)
+
+> ⚠️ You must tap the **language name** — not the toggle switch — to access multilingual options.
+
+1. **Settings → Languages & Layouts** → tap **+ Add Language** → select `French (fr_FR)`
+2. Tap the **French language name** → tap **+** next to *Multilingual typing* → add `English (en_US)`
+3. **Settings → Dictionary → Add dictionary** → download dictionaries for both `fr_FR` and `en_US`
+
+### 5.2 Suggestion Strip (3-word bar with space = validate middle word)
+
+In **Settings → Text Correction**, enable the following:
+
+| Setting | Value |
+|---|---|
+| Show suggestions | ✅ Enabled |
+| Always show middle suggestion | ✅ Enabled |
+| Automatically replace with middle suggestion | ✅ Enabled |
+| Auto-correction | *Modest* (adjust to taste) |
+| Next-word suggestions | ✅ Enabled |
+
+> The middle word appears **bold** when it differs from what you typed (i.e. autocorrect will trigger on space). If not bold, pressing space keeps your typed word as-is.
+
+### 5.3 Swipe/Glide Typing (optional)
+
+HeliBoard does not bundle the gesture library due to licensing restrictions. To enable it:
+
+1. Download `gesture_typing_library.zip` from the [HeliBoard GitHub releases page](https://github.com/Helium314/HeliBoard/releases)
+2. Extract the `.so` file matching your CPU architecture (usually `arm64-v8a`)
+3. In HeliBoard: **Settings → Advanced → Load Gesture Typing Library** → select the `.so` file
+
+### 5.4 Comfort & Layout Settings
+
+| Feature | Path |
+|---|---|
+| Number row | Settings → Preferences → Number row ✅ |
+| Double-space adds period | Settings → Typing → Double-space period ✅ |
+| Swipe spacebar to switch language | Settings → Advanced → Horizontal spacebar swipe → *Switch language* |
+| Key height / padding | Settings → Appearance → Custom key height |
+| Theme (Material You) | Settings → Appearance → Theme → *Material You* |
+
+### 5.5 Toolbar Customization
+
+**Settings → Appearance → Customize toolbar icons** — recommended icons to add:
+
+- Clipboard
+- Undo / Redo
+- Select word
+- Voice input *(optional)*
+
+---
+
+## 6. Back Up HeliBoard Settings
+
+Once everything is configured, back up your settings so you never have to redo this:
+
+**HeliBoard Settings → Advanced → Back up settings** → save the file in a safe location.
+
+To restore on a new device: **Settings → Advanced → Restore settings** → select the backup file.
+
+---
+
+## 7. Uninstalling UDM
+
+**Yes, you can uninstall UDM immediately** after the import. UDM is only a transfer tool. Once words are injected into Android's system personal dictionary, they belong to HeliBoard and UDM plays no further role.
+
+---
+
+## 8. What Doesn't Transfer
+
+| SwiftKey Feature | Status |
+|---|---|
+| Learned autocorrect model / AI predictions | ❌ HeliBoard will re-learn from scratch |
+| Themes | ❌ Must be reconfigured manually |
+| Clipboard history | ❌ Not exported by SwiftKey |
+| Personal dictionary (manually added words) | ✅ Transferred via this guide |
+| Learned vocabulary (typed words) | ✅ Transferred via this guide |
+
+---
+
+## Credits & References
+
+- [SwiftKey Data Portal](https://data.swiftkey.com)
+- [HeliBoard GitHub](https://github.com/Helium314/HeliBoard)
+- [User Dictionary Manager (UDM)](https://play.google.com/store/apps/details?id=com.dooboolab.UDM)
+- Original dictionary converter concept: [AiCurv/SwiftKey-to-HeliBoard (GitHub Gist)](https://gist.github.com/AiCurv/dc16a89ffe09c0d25f24049dcff40005)
+
+---
+
+*Guide written in March 2026. Tested on Android 13/14. SwiftKey account retirement deadline: May 31, 2026.*
