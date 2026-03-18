@@ -23,7 +23,7 @@ A complete, ADB-free guide to migrate your SwiftKey learned vocabulary and setti
 
 ## Why HeliBoard?
 
-SwiftKey's forced migration to Microsoft accounts is a good opportunity to rethink which keyboard you trust with everything you type.
+SwiftKey's forced migration to Microsoft accounts is a good opportunity to rethink which keyboard you trust with everything you type. Here's why HeliBoard is a strong choice.
 
 ### 🔒 Zero Network Access — By Design
 
@@ -82,7 +82,11 @@ SwiftKey does not allow a local export — you must go through its web portal, w
 
 4. On a PC, go to [data.swiftkey.com](https://data.swiftkey.com) and sign in
 5. Click **View Data → Export All**
-6. Download the `swiftkey.json` file — this contains your full learned vocabulary
+6. Download the ZIP file — it will be named `userdata-{your-id}-{date}.zip`
+7. Extract the ZIP — you will find:
+   - `demographics.json` ← ignore this
+   - `services/sync_words.json` ← **this is your dictionary**
+8. Copy `sync_words.json` to the folder where you will run the converter script
 
 > You may delete the temporary Microsoft account afterwards if you created one for this purpose.
 
@@ -94,12 +98,12 @@ HeliBoard cannot directly import SwiftKey's JSON format. The raw data also conta
 
 **Requirements:** Python 3 installed on your PC ([python.org](https://python.org))
 
-Save the following as `convert.py` in the same folder as `swiftkey.json`:
+Save the following as `convert.py` in the same folder as `sync_words.json`:
 
 ```python
 import json, re
 
-with open("swiftkey.json", encoding="utf-8") as f:
+with open("sync_words.json", encoding="utf-8") as f:
     data = json.load(f)
 
 terms = data.get("terms", [])
