@@ -143,7 +143,6 @@ Installez HeliBoard depuis l'une de ces sources :
 
 - [F-Droid](https://f-droid.org/packages/helium314.keyboard/) *(recommandé — sans Google)*
 - [GitHub Releases](https://github.com/Helium314/HeliBoard/releases)
-- [Google Play Store](https://play.google.com/store/apps/details?id=helium314.keyboard)
 
 Puis activez-le comme clavier par défaut :
 
