@@ -27,15 +27,15 @@ SwiftKey's forced migration to Microsoft accounts is a good opportunity to rethi
 
 ### 🔒 Zero Network Access — By Design
 
-HeliBoard **does not request internet permission** at all [web:90]. This means everything you type stays on your device — no keystrokes, learned words, or personal data ever leave your phone. SwiftKey and Gboard both send typing data to cloud servers for prediction improvements. HeliBoard's predictions run entirely offline.
+HeliBoard **does not request internet permission** at all. This means everything you type stays on your device — no keystrokes, learned words, or personal data ever leave your phone. SwiftKey and Gboard both send typing data to cloud servers for prediction improvements. HeliBoard's predictions run entirely offline.
 
 ### 🆓 Free, Open Source, No Ads
 
-HeliBoard is fully open source (Apache 2.0 license), has no ads, no subscriptions, and no telemetry [web:91]. The source code is publicly auditable on [GitHub](https://github.com/Helium314/HeliBoard), which means the privacy claims can actually be verified — unlike closed-source alternatives.
+HeliBoard is fully open source (Apache 2.0 license), has no ads, no subscriptions, and no telemetry. The source code is publicly auditable on [GitHub](https://github.com/Helium314/HeliBoard), which means the privacy claims can actually be verified — unlike closed-source alternatives.
 
 ### ⚙️ More Customizable Than Gboard or SwiftKey
 
-HeliBoard matches or exceeds both Gboard and SwiftKey in features [web:26]:
+HeliBoard matches or exceeds both Gboard and SwiftKey in features:
 
 - Unlimited clipboard history (Gboard caps at 5 items and resets hourly)
 - Fully customizable toolbar icons
@@ -46,11 +46,11 @@ HeliBoard matches or exceeds both Gboard and SwiftKey in features [web:26]:
 
 ### 🌍 Solid Multilingual Support
 
-You can type in multiple languages simultaneously without manually switching — HeliBoard detects the language mid-sentence [web:89]. Dictionaries are downloaded locally per language and work fully offline.
+You can type in multiple languages simultaneously without manually switching — HeliBoard detects the language mid-sentence. Dictionaries are downloaded locally per language and work fully offline.
 
 ### 🛠️ Actively Maintained
 
-HeliBoard is based on AOSP/OpenBoard and actively maintained by the community on GitHub [web:30]. Bug reports and feature requests are handled publicly and transparently.
+HeliBoard is based on AOSP/OpenBoard and actively maintained by the community on GitHub. Bug reports and feature requests are handled publicly and transparently.
 
 ### ⚖️ Honest Limitations
 
