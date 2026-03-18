@@ -8,7 +8,7 @@ A complete, ADB-free guide to migrate your SwiftKey learned vocabulary and setti
 
 ## Table of Contents
 
-- [Why HeliBoard?](#why-heliboard)
+[Why HeliBoard?](#why-heliboard)
 
 1. [Export Your SwiftKey Data](#1-export-your-swiftkey-data)
 2. [Convert the Dictionary](#2-convert-the-dictionary)
