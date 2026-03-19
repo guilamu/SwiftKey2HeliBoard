@@ -75,7 +75,7 @@ For most users coming from SwiftKey, the trade-off is clear: you lose a slightly
 | **Multilingual Support** | ✅ Excellent — automatic mid-sentence detection  [github](https://github.com/Helium314/HeliBoard/discussions/550) | ⚠️ Limited, less mature  [reddit](https://www.reddit.com/r/foss/comments/1n3c0q0/heliboard_vs_futo_keyboard/) |
 | **Customization** | ⭐⭐⭐⭐⭐ Very advanced — height, themes, toolbar, layouts  [discuss.privacyguides](https://discuss.privacyguides.net/t/heliboard-offline-keyboard-for-android/28093) | ⭐⭐ Basic — themes in development  [lemmy.dbzer0](https://lemmy.dbzer0.com/post/35503843) |
 | **Maturity / Stability** | ✅ Stable, v2.x+ | ⚠️ Still in alpha/beta  [forum.f-droid](https://forum.f-droid.org/t/heliboard-the-best-gboard-alternative/32634) |
-| **Availability** | F-Droid, GitHub, Play Store | F-Droid, Play Store, Direct APK  [cybersecuritythreatai](https://cybersecuritythreatai.com/futo-keyboard-fortifying-your-mobile-privacy-against-ai-powered-data-leaks-and-keyboard-tracking-threats/) |
+| **Availability** | F-Droid, GitHub | F-Droid, Play Store, Direct APK  [cybersecuritythreatai](https://cybersecuritythreatai.com/futo-keyboard-fortifying-your-mobile-privacy-against-ai-powered-data-leaks-and-keyboard-tracking-threats/) |
 | **Migration from SwiftKey** | ✅ Via this guide | ❌ No documented procedure |
 
 ---
