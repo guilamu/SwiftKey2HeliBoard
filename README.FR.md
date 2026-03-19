@@ -263,7 +263,7 @@ Pour restaurer sur un nouvel appareil : **Paramètres → Avancé → Restaurer 
 
 ## 7. Désinstaller UDM
 
-**Oui, vous pouvez désinstaller UDM immédiatement** après l'import. UDM n'est qu'un outil de transfert. Une fois les mots injectés dans le dictionnaire personnel système d'Android, ils appartiennent à HeliBoard et UDM ne joue plus aucun rôle.
+**Vous pouvez désinstaller UDM immédiatement** après l'import. UDM n'est qu'un outil de transfert. Une fois les mots injectés dans le dictionnaire personnel système d'Android, ils appartiennent à HeliBoard et UDM ne joue plus aucun rôle.
 
 ---
 
