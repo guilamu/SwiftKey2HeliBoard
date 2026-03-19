@@ -63,6 +63,21 @@ HeliBoard n'est pas parfait :
 
 Pour la plupart des utilisateurs venant de SwiftKey, le compromis est clair : vous perdez un modèle de correction automatique cloud légèrement plus intelligent, et vous gagnez une confidentialité totale, aucune exigence de compte et aucun risque de migration forcée future.
 
+### 📊 Comparatif : HeliBoard vs FUTO Keyboard
+
+| Critère | HeliBoard | FUTO Keyboard |
+|---|---|---|
+| **Licence** | Open source — Apache 2.0  [github](https://github.com/HeliBorg/HeliBoard) | Open source — code public sur GitHub  [cybersecuritythreatai](https://cybersecuritythreatai.com/futo-keyboard-fortifying-your-mobile-privacy-against-ai-powered-data-leaks-and-keyboard-tracking-threats/) |
+| **Accès Internet** | ❌ Aucun  [discuss.privacyguides](https://discuss.privacyguides.net/t/heliboard-offline-keyboard-for-android/28093) | ❌ Aucun  [cybersecuritythreatai](https://cybersecuritythreatai.com/futo-keyboard-fortifying-your-mobile-privacy-against-ai-powered-data-leaks-and-keyboard-tracking-threats/) |
+| **Saisie par glissement** | ✅ Via bibliothèque externe à télécharger  [forum.f-droid](https://forum.f-droid.org/t/heliboard-the-best-gboard-alternative/32634) | ✅ Intégré nativement (alpha)  [thecadmasters](https://thecadmasters.com/futo-keyboard-secure-offline-typing-for-the-privacy-conscious/) |
+| **Saisie vocale hors ligne** | ❌ Non inclus | ✅ Inclus nativement, modèles téléchargeables  [windowsforum](https://windowsforum.com/threads/futo-keyboard-the-offline-first-android-keyboard-for-true-on-device-privacy.405419/) |
+| **Qualité d'autocorrection** | ⭐⭐⭐ Bonne, s'améliore avec l'usage  [reddit](https://www.reddit.com/r/privacy/comments/1lksnc5/fossify_or_futo_keyboard/) | ⭐⭐⭐⭐ Supérieure selon les retours utilisateurs  [lemmy.dbzer0](https://lemmy.dbzer0.com/post/35503843) |
+| **Support multilingue** | ✅ Excellent — détection automatique mid-phrase  [github](https://github.com/Helium314/HeliBoard/discussions/550) | ⚠️ Limité, moins mature  [reddit](https://www.reddit.com/r/foss/comments/1n3c0q0/heliboard_vs_futo_keyboard/) |
+| **Personnalisation** | ⭐⭐⭐⭐⭐ Très avancée — hauteur, thèmes, toolbar, layouts  [discuss.privacyguides](https://discuss.privacyguides.net/t/heliboard-offline-keyboard-for-android/28093) | ⭐⭐ Basique — thèmes en cours de développement  [lemmy.dbzer0](https://lemmy.dbzer0.com/post/35503843) |
+| **Maturité / stabilité** | ✅ Stable, v2.x+ | ⚠️ Encore en alpha/bêta  [forum.f-droid](https://forum.f-droid.org/t/heliboard-the-best-gboard-alternative/32634) |
+| **Disponibilité** | F-Droid, GitHub, Play Store | F-Droid, Play Store, APK direct  [cybersecuritythreatai](https://cybersecuritythreatai.com/futo-keyboard-fortifying-your-mobile-privacy-against-ai-powered-data-leaks-and-keyboard-tracking-threats/) |
+| **Migration depuis SwiftKey** | ✅ Via ce guide | ❌ Pas de procédure documentée |
+
 ---
 
 ## 1. Exporter vos données SwiftKey
@@ -219,6 +234,20 @@ HeliBoard n'inclut pas la bibliothèque de gestes pour des raisons de licence. P
 - Annuler / Rétablir
 - Sélectionner un mot
 - Saisie vocale *(optionnel)*
+
+### 5.6 Correctif pour Reddit et Google Keep (Bug d'absence de suggestions)
+
+Ce bug est bien connu et a une cause précise : l'app Reddit (et certaines autres) positionne un flag `TYPE_TEXT_FLAG_NO_SUGGESTIONS` sur ses champs de texte. HeliBoard respecte ce flag par défaut — contrairement à SwiftKey ou Gboard qui l'ignorent.
+
+Le correctif en une manipulation :
+
+**HeliBoard Paramètres → Correction du texte → Always show suggestions** → ✅ Activer
+
+Et vérifiez aussi que cette option est désactivée :
+
+**Correction du texte → Don't show suggestions for web edit fields** → ❌ Désactiver
+
+C'est tout. Les suggestions apparaîtront désormais dans Reddit, Google Keep, et tous les autres champs qui utilisaient ce flag.
 
 ---
 
