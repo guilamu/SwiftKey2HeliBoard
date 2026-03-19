@@ -168,7 +168,7 @@ Puis activez-le comme clavier par défaut :
 
 ## 4. Importer votre dictionnaire
 
-[UDM (User Dictionary Manager)](https://play.google.com/store/apps/details?id=com.dooboolab.UDM) est nécessaire comme pont pour injecter les mots dans le dictionnaire système Android, que HeliBoard utilise.
+[UDM (User Dictionary Manager)](https://play.google.com/store/apps/details?id=com.usr.dict.mgr) est nécessaire comme pont pour injecter les mots dans le dictionnaire système Android, que HeliBoard utilise.
 
 1. Installez **UDM** depuis F-Droid ou le Play Store
 2. Copiez `heliboard_wordlist.txt` sur votre téléphone
@@ -283,7 +283,7 @@ Pour restaurer sur un nouvel appareil : **Paramètres → Avancé → Restaurer 
 
 - [Portail de données SwiftKey](https://data.swiftkey.com)
 - [HeliBoard GitHub](https://github.com/Helium314/HeliBoard)
-- [User Dictionary Manager (UDM)](https://play.google.com/store/apps/details?id=com.dooboolab.UDM)
+- [User Dictionary Manager (UDM)](https://play.google.com/store/apps/details?id=com.usr.dict.mgr)
 - Concept original du convertisseur : [AiCurv/SwiftKey-to-HeliBoard (GitHub Gist)](https://gist.github.com/AiCurv/dc16a89ffe09c0d25f24049dcff40005)
 
 ---
